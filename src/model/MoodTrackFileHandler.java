@@ -36,9 +36,10 @@ public class MoodTrackFileHandler implements FileHandler {
 
     try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
       while ((line = br.readLine()) != null) {
-        String[] allStockInfo = line.split(splitBy);
-        temp = new Entry(allStockInfo[0], Double.parseDouble(allStockInfo[1]),
-                allStockInfo[2], allStockInfo[3], Double.parseDouble(allStockInfo[4]));
+        String[] allEntryInfo = line.split(splitBy);
+        temp = new Entry(allEntryInfo[0], Integer.parseInt(allEntryInfo[1]),
+                Integer.parseInt(allEntryInfo[2]), Integer.parseInt(allEntryInfo[3]),
+                Integer.parseInt(allEntryInfo[4]),Integer.parseInt(allEntryInfo[5]));
         stocks.add(temp);
         numStocks++;
       }
