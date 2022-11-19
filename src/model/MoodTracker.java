@@ -80,7 +80,7 @@ public class MoodTracker implements IMoodTracker {
   }
 
   @Override
-  public void addEntry(String date, int happiness, int stress, int sleep, int energy) throws IllegalArgumentException
+  public void addEntry(String date, int happiness, int stress, int sleep, int energy, int water) throws IllegalArgumentException
   {
     boolean flag=false;
     if ( checkValidDateFormat(date)) {
@@ -96,7 +96,7 @@ public class MoodTracker implements IMoodTracker {
     }
 
     if (!flag) {
-      Entry temp = new Entry(date, happiness, stress, sleep, energy);
+      Entry temp = new Entry(date, happiness, stress, sleep, energy, water);
       entries.add(temp);
     }
   }
