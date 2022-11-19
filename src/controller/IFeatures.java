@@ -8,8 +8,8 @@ public interface IFeatures {
   void switchToGetHappinessPage();
   void switchToChartPage();
   void switchToSearchPage();
-  void switchToSearchResultPage();
+  void showSearchResult();
   void switchToHighlightsPage();
-  void switchToHighlightsResultPage();
+  void showHighlightsResult();
   void exitProgram();
 }

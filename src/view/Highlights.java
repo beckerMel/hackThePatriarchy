@@ -21,7 +21,7 @@ public class Highlights extends JFrame implements IView {
 
   @Override
   public void addFeatures(IFeatures features) {
-    enterButton.addActionListener(evt -> features.switchToHighlightsResultPage());
+    enterButton.addActionListener(evt -> features.showHighlightsResult());
     homeButton.addActionListener(evt -> features.switchToMainPage());
   }
 

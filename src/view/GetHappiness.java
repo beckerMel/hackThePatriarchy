@@ -16,7 +16,20 @@ public class GetHappiness extends JFrame implements IView {
     setLocation(200, 200);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+    display = new JLabel("Get Happiness");
+    this.add(display);
 
+    searchButton = new JButton("Search for an Entry");
+    this.add(searchButton);
+
+    highlightsButton = new JButton("Get Highlights");
+    this.add(highlightsButton);
+
+    homeButton = new JButton("Go to Home");
+    this.add(homeButton);
+
+    pack();
+    setVisible(true);
   }
 
   @Override

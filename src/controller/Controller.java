@@ -1,10 +1,13 @@
 package controller;
 
+import javax.naming.directory.SearchResult;
 import model.IModel;
 import view.EntryFrame;
 import view.GetHappiness;
+import view.Highlights;
 import view.IView;
 import view.RemoveFrame;
+import view.Search;
 
 /**
  * This class implements the Controller interface.
@@ -55,20 +58,23 @@ public class Controller implements IFeatures {
 
   @Override
   public void switchToSearchPage() {
-    // TODO
-  }
-  @Override
-  public void switchToSearchResultPage()  {
-    // TODO
+    IView searchPage = new Search();
+    this.view = searchPage;
   }
 
   @Override
   public void switchToHighlightsPage()  {
+    IView highlightsPage = new Highlights();
+    this.view = highlightsPage;
+  }
+
+  @Override
+  public void showSearchResult()  {
     // TODO
   }
 
   @Override
-  public void switchToHighlightsResultPage()  {
+  public void showHighlightsResult()  {
     // TODO
   }
 
