@@ -1,6 +1,9 @@
 package model;
 
 import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -40,7 +43,7 @@ public class JoyArchive implements IJoyArchive {
 
   private int nextEntryId;
 
-  private Map<Date, String> highlights;
+  private Map<Calendar, String> highlights;
 
   private class Tag {
     String name;
@@ -110,6 +113,8 @@ public class JoyArchive implements IJoyArchive {
       }
     }
 
+
+
     private void removeTag(String name) {
       tags.remove(name);
     }
@@ -133,6 +138,11 @@ public class JoyArchive implements IJoyArchive {
     entries = new HashMap<>();
     nextEntryId = 0;
     highlights = new HashMap<Date, String>();
+  }
+
+  protected int randomNumber(int minVal, int maxVal) {
+    int range = maxVal - minVal + 1;
+    return (int) Math.floor((Math.random() * range) + minVal);
   }
 
   protected boolean tagExists(String tag) {
@@ -252,29 +262,58 @@ public class JoyArchive implements IJoyArchive {
     tags.remove(tag);
   }
 
+  protected Date stringToDate(String date) throws IllegalArgumentException {
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    Date date1 = null;
+    try {
+      date1 = formatter.parse(date);
+    } catch (ParseException e) {
+      throw new IllegalArgumentException("Invalid date format - use yyyy-mm-dd");
+    }
+    return date1;
+  }
+
   @Override
-  public List<String> getHighlights(String startDate, String endDate) {
-    return null;
+  public List<String> getHighlights(String startDate, String endDate)
+          throws IllegalArgumentException {
+    Date start = stringToDate(startDate);
+    Date end = stringToDate(endDate);
+    Calendar startCal = Calendar.getInstance();
+    startCal.setTime(start);
+    Calendar endCal = Calendar.getInstance();
+    endCal.setTime(end);
+
+    List<String> returnList = new LinkedList<>();
+
+    if (endCal.before(startCal)) {
+      throw new IllegalArgumentException("Start date is after end date");
+    }
+    Calendar currDay = startCal;
+    while(!startCal.after(endCal)) {
+      String thisHighlight = highlights.get(currDay);
+      if (highlights == null) {
+        continue;
+      }
+      returnList.add(thisHighlight);
+    }
+    return returnList;
   }
 
   @Override
   public List<String> getEntryTags(String entryName) {
-    return null;
+    Entry thisEntry = entries.get(entryName);
+    return thisEntry.tags;
   }
 
   @Override
   public List<String> getAllCertainTag(String tag) {
-    return null;
+    Tag thisTag = tags.get(tag);
+    return thisTag.entryIds;
   }
 
   @Override
   public String getRandomEntry() {
-    return null;
-  }
-
-  @Override
-  public String getRandomAffirmation() {
-    return null;
+    int index = randomNumber(0, entries.size() - 1);
   }
 
   @Override

@@ -5,10 +5,6 @@ import java.util.List;
 public interface IJoyArchive {
   void addEntry(String entryName, String entryBody, String... tags);
 
-  void addAffirmation(String text);
-
-  void removeAffirmation(String entryName);
-
   /* Return the affirmations that users haven't pre-selected yet */
   String getSampleAffirmations();
 
@@ -29,9 +25,11 @@ public interface IJoyArchive {
   /* Will just give the file to controller if it's media */
   String getRandomEntry();
 
-  String getRandomAffirmation();
-
   List<String> getHighlights(String startDate, String endDate);
 
   List<String> getEntryTags(String entryName);
+
+  void addHighlight(String date, String text);
+
+  void removeHighlight(String date);
 }
