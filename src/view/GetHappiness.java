@@ -12,13 +12,18 @@ public class GetHappiness extends JFrame implements IView {
 
   public GetHappiness() {
 
+    setSize(500, 300);
+    setLocation(200, 200);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+
   }
 
   @Override
   public void addFeatures(IFeatures features) {
-    //searchButton.addActionListener(evt -> features.searchFeatureSelected());
-    //highlightsButton.addActionListener(evt -> features.highlightsFeatureSelected());
-    //homeButton.addActionListener(evt -> feature.goHome());
+    searchButton.addActionListener(evt -> features.switchToSearchPage());
+    highlightsButton.addActionListener(evt -> features.switchToHighlightsPage());
+    homeButton.addActionListener(evt -> features.switchToMainPage());
   }
 
   @Override

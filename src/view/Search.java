@@ -14,6 +14,10 @@ public class Search extends JFrame implements IView {
 
   public Search() {
 
+    setSize(500, 300);
+    setLocation(200, 200);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
   }
 
   @Override

@@ -15,7 +15,6 @@ public class Controller implements IFeatures {
   private IView view;
 
 
-
   public Controller(IModel m) {
     model = m;
   }
@@ -26,12 +25,15 @@ public class Controller implements IFeatures {
     view.addFeatures(this);
   }
 
+  @Override
+  public void switchToMainPage() {
+    // TODO
+  }
 
   @Override
   public void switchToAddEntryPage() {
     IView entryFrame = new EntryFrame();
     view = entryFrame;
-
   }
 
   @Override
@@ -49,6 +51,25 @@ public class Controller implements IFeatures {
   @Override
   public void switchToChartPage() {
   // TO BE ADDED
+  }
+
+  @Override
+  public void switchToSearchPage() {
+    // TODO
+  }
+  @Override
+  public void switchToSearchResultPage()  {
+    // TODO
+  }
+
+  @Override
+  public void switchToHighlightsPage()  {
+    // TODO
+  }
+
+  @Override
+  public void switchToHighlightsResultPage()  {
+    // TODO
   }
 
   @Override

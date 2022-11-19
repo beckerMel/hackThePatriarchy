@@ -13,13 +13,16 @@ public class Highlights extends JFrame implements IView {
   private JTextField input;
 
   public Highlights() {
+    setSize(500, 300);
+    setLocation(200, 200);
+    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
   }
 
   @Override
   public void addFeatures(IFeatures features) {
-    //enterButton.addActionListener(evt -> features.showHighlights());
-    //homeButton.addActionListener(evt -> feature.goHome());
+    enterButton.addActionListener(evt -> features.switchToHighlightsResultPage());
+    homeButton.addActionListener(evt -> features.switchToMainPage());
   }
 
   @Override
