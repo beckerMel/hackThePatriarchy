@@ -80,7 +80,7 @@ public class EntryFrame extends JFrame implements IView{
     @Override
     public void addFeatures(IFeatures features) {
         addButton.addActionListener(evt -> features.
-                addEntry(dateFld.getText(), happinessFld.getText(), sleepFld.getText(), stressFld.getText(),
+                addMoodTrackerEntry(dateFld.getText(), happinessFld.getText(), sleepFld.getText(), stressFld.getText(),
                         energyFld.getText(), waterFld.getText()));
 
         mainPageButton.addActionListener(evt -> features.switchToMainPage());
