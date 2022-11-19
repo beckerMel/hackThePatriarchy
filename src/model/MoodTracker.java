@@ -105,6 +105,7 @@ public class MoodTracker implements IMoodTracker {
     if (!flag) {
       Entry temp = new Entry(date, happiness, stress, sleep, energy, water);
       entries.add(temp);
+      numOfEntries++;
     }
   }
 
@@ -162,5 +163,20 @@ public class MoodTracker implements IMoodTracker {
     }
     return true;
   }
+
+
+  @Override
+  public String viewEntries()
+  {
+    String s="";
+      for(int i=0; i<numOfEntries; i++) {
+        Entry tem = entries.get(i);
+        //System.out.println(tem);
+        s=s+tem.displayEntry(tem.getDate())+"\n";
+      }
+      return s;
+    }
+
+
 
 }

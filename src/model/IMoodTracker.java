@@ -25,4 +25,6 @@ public interface IMoodTracker {
   void removeEntry(String date) throws IllegalArgumentException;
 
   public boolean checkValidDateFormat(String name);
+
+  String viewEntries();
 }

@@ -16,7 +16,7 @@ public class DataSource {
     String splitBy = ",";
     String line = "";
     try (BufferedReader br = new BufferedReader(new
-            FileReader("../res/trackingData.csv"))) {
+            FileReader("res/trackingData.csv"))) {
       while ((line = br.readLine()) != null) {
         String[] allEntryInfo = line.split(splitBy);
         if (allEntryInfo[0].equals(date)) {
@@ -92,7 +92,7 @@ public class DataSource {
     String splitBy = ",";
     String line = "";
     try (BufferedReader br = new BufferedReader(new
-            FileReader("../res/trackingData.csv"))) {
+            FileReader("res/trackingData.csv"))) {
       while ((line = br.readLine()) != null) {
         String[] allEntryInfo = line.split(splitBy);
         if (allEntryInfo[0].equals(date)) {

@@ -5,13 +5,16 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Set;
 
 
 public class GraphService implements IGraphService {
 
   @Override
-  public LinkedHashMap<String, Integer> toGraph(String startDate, String endDate,
+  public String toGraph(String startDate, String endDate,
                                                 IMoodTracker p, DataSource api, String feature)
           throws IllegalArgumentException {
     String start = "Mood chart " + p.getTrackerName() + " from " + startDate
@@ -38,10 +41,7 @@ public class GraphService implements IGraphService {
     if (y == 1 && m < 12) {
       y = 0;
     }
-    if (d < 5 && m == 0 && y == 0) {
-      throw new IllegalArgumentException();
-      //interval too short
-    }
+
     LinkedHashMap<String, Integer> dict = new LinkedHashMap<>();
 
     Calendar cal1 = Calendar.getInstance();
@@ -92,7 +92,29 @@ public class GraphService implements IGraphService {
         }
       }
     }
-    return dict;
+    return dictShow(dict);
+  }
+
+
+  public String dictShow(LinkedHashMap<String, Integer> dict) {
+    String s = "";
+    Set set = dict.entrySet();
+    int v=0;
+    // Get an iterator
+    Iterator i = set.iterator();
+
+    // Display elements
+    while (i.hasNext()) {
+      Map.Entry me = (Map.Entry) i.next();
+      s = s + me.getKey() + "\t";
+      v= (int) me.getValue();
+      for(int j=0; j<v; j++) {
+        s=s+"*";
+      }
+      s=s+"\n";
+    }
+
+    return s;
   }
 
 
