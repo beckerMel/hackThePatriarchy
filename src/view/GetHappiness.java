@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.*;
+
 import controller.IFeatures;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -11,10 +13,13 @@ public class GetHappiness extends JFrame implements IView {
   private JButton searchButton, highlightsButton, homeButton;
 
   public GetHappiness() {
+    super("Happiness Page");
 
     setSize(500, 300);
     setLocation(200, 200);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    this.setLayout(new FlowLayout());
 
     display = new JLabel("Get Happiness");
     this.add(display);
