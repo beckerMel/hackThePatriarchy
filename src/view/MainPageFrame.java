@@ -11,7 +11,6 @@ import controller.IFeatures;
 public class MainPageFrame extends JFrame implements IView {
   private JLabel display;
   private JButton addEntryButton, removeEntryButton, getHappinessButton, chartButton;
-  private JFrame GetHappinessFrame = new GetHappiness();
 
   public MainPageFrame() {
     super("Home Page");
