@@ -11,6 +11,8 @@ public class Controller implements IFeatures {
   private IModel model;
   private IView view;
 
+
+
   public Controller(IModel m) {
     model = m;
   }
