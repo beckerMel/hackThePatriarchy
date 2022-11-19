@@ -1,18 +1,7 @@
 package model;
 
-import java.io.File;
-import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
 
 public class Model implements IModel {
   private IJoyArchive ja;
@@ -112,8 +101,8 @@ public class Model implements IModel {
   }
 
   @Override
-  public LinkedHashMap<String, Integer> toGraph(String startDate, String endDate,
-                                                DataSource api, String feature) throws IllegalArgumentException {
+  public String toGraph(String startDate, String endDate,
+                        DataSource api, String feature) throws IllegalArgumentException {
     return gs.toGraph(startDate, endDate, mt, api, feature);
   }
 

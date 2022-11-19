@@ -86,7 +86,7 @@ public class Controller implements IFeatures {
   }
 
   @Override
-  public void addEntry(String date, String happiness, String stress, String sleep, String energy, String water) {
+  public void addMoodTrackerEntry(String date, String happiness, String stress, String sleep, String energy, String water) {
     model.addMoodTrackerEntry(date, Integer.parseInt(happiness), Integer.parseInt(stress), Integer.parseInt(sleep),
             Integer.parseInt(energy), Integer.parseInt(water));
   }
@@ -94,6 +94,10 @@ public class Controller implements IFeatures {
   @Override
   public void removeEntry(String date) {
     model.removeMoodTrackerEntry(date);
+  }
+
+  public void addHighlight(String entryName, String entryContent, String entryTag) {
+    model.addJAEntry(entryName, entryContent, entryTag);
   }
 
   @Override

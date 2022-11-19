@@ -11,6 +11,7 @@ public class RemoveFrame extends JFrame implements IView {
     private JTextField dateRemove;
     private JButton removeButton, mainPageButton;
 
+
     /**
      * Automatically Constructs the visual of the remove page. Basically will be: Are you sure you want to remove entry?
      * y/n

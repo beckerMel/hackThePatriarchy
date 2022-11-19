@@ -16,8 +16,9 @@ import java.util.Scanner;
 public class EntryFrame extends JFrame implements IView{
 
     private JLabel display;
-    private JButton addButton, mainPageButton;
+    private JButton addButton, mainPageButton, addHighlightButton;
     private JTextField dateFld, happinessFld, stressFld, sleepFld, energyFld, waterFld;
+    private JTextField content, tag;
 
 
     /**
@@ -52,8 +53,18 @@ public class EntryFrame extends JFrame implements IView{
         waterFld = new JTextField("Water Input", 10);
         this.add(waterFld);
 
-        addButton = new JButton("Add Entry");
+        content = new JTextField("Highlight", 50);
+        this.add(content);
+
+        tag = new JTextField("Highlight Tag", 50);
+        this.add(tag);
+
+        addButton = new JButton("Add Entry Mood Tracking");
         addButton.setActionCommand("Add Entry");
+
+        addHighlightButton = new JButton("Add Entry Highlight");
+        addHighlightButton.setActionCommand("Add Entry");
+        
 
         mainPageButton = new JButton("Go Back to Home");
         mainPageButton.setActionCommand("Go to Main");
@@ -69,10 +80,12 @@ public class EntryFrame extends JFrame implements IView{
     @Override
     public void addFeatures(IFeatures features) {
         addButton.addActionListener(evt -> features.
-                addEntry(dateFld.getText(), happinessFld.getText(), sleepFld.getText(), stressFld.getText(),
+                addMoodTrackerEntry(dateFld.getText(), happinessFld.getText(), sleepFld.getText(), stressFld.getText(),
                         energyFld.getText(), waterFld.getText()));
 
         mainPageButton.addActionListener(evt -> features.switchToMainPage());
+        
+        addHighlightButton.addActionListener(evt -> features.addHighlight(dateFld.getText(), content.getText(), tag.getText()));
     }
 
     /**
