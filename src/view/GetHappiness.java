@@ -1,6 +1,6 @@
 package view;
 
-import controller.Features;
+import controller.IFeatures;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -23,7 +23,7 @@ public class GetHappiness extends JFrame implements IView {
   }
 
   @Override
-  public void addFeatures(Features features) {
+  public void addFeatures(IFeatures features) {
 
   }
 

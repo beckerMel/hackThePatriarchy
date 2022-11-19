@@ -1,5 +1,6 @@
 package controller;
 
-public interface IFeatures {
 
+public interface IFeatures {
+  void exitProgram();
 }
