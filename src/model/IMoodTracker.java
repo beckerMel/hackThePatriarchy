@@ -17,7 +17,7 @@ public interface IMoodTracker {
 
   ArrayList<Entry> getEntries();
 
-  IMoodTracker createFromFile(IFileHandler f, String filepath) throws IllegalArgumentException;
+  IMoodTracker createFromFile(IMoodTrackFileHandler f, String filepath) throws IllegalArgumentException;
 
   void addEntry(String date, int happiness, int stress, int sleep, int energy, int water)
           throws RuntimeException;

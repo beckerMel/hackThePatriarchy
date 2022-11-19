@@ -16,9 +16,8 @@ import java.util.Scanner;
 public class EntryFrame extends JFrame implements IView{
 
     private JLabel display;
-    private JButton addEntryButton, removeEntryButton, goHomeButton, chartButton;
-    private JFrame GetHappinessFrame = new GetHappiness();
-    private InputStream input;
+    private JButton addButton, mainPageButton;
+    private JTextField dateFld, happinessFld, stressFld, sleepFld, energyFld, waterFld;
 
 
     /**
@@ -33,13 +32,31 @@ public class EntryFrame extends JFrame implements IView{
 
         display = new JLabel("Hello! Welcome to the Entry Page");
         this.add(display);
-        input = System.in; //Takes in input of the entry
 
-        /**
-         * Button to hit out incase they didn't mean to hit the entry frame
-         */
-        goHomeButton = new JButton("Go Back to Home");
-        goHomeButton.setActionCommand("Go to Main");
+        //the text-field
+        dateFld = new JTextField("Entry Date", 10);
+        this.add(dateFld);
+
+        happinessFld = new JTextField("Happiness Input", 10);
+        this.add(happinessFld);
+
+        stressFld = new JTextField("Stress Input", 10);
+        this.add(stressFld);
+
+        sleepFld = new JTextField("Sleep Input", 10);
+        this.add(sleepFld);
+
+        energyFld = new JTextField("Energy Input", 10);
+        this.add(energyFld);
+
+        waterFld = new JTextField("Water Input", 10);
+        this.add(waterFld);
+
+        addButton = new JButton("Add Entry");
+        addButton.setActionCommand("Add Entry");
+
+        mainPageButton = new JButton("Go Back to Home");
+        mainPageButton.setActionCommand("Go to Main");
 
         pack();
         setVisible(true);
@@ -51,59 +68,12 @@ public class EntryFrame extends JFrame implements IView{
      */
     @Override
     public void addFeatures(IFeatures features) {
-        LocalDateTime today = LocalDateTime.now();
-        String dateToString = today.toString();
-        IModel model = (IModel) new Entry(dateToString);
-        Controller controller = new Controller(model);
-        IView view = new MainPageFrame();
-        controller.setView(view);
+        addButton.addActionListener(evt -> features.
+                addEntry(dateFld.getText(), happinessFld.getText(), sleepFld.getText(), stressFld.getText(),
+                        energyFld.getText(), waterFld.getText()));
 
-        Scanner scan = new Scanner(input);
-
-        /**
-         * The way this is set up is so painful but is easiest quickest way to code due to time constraints
-         * Assuming all 5 things will be inputted line by line
-         */
-        if (scan.hasNext()) {
-            //Adds the string input
-            //String date
-            String date = scan.next();
-
-            //happiness
-            int happiness;
-            int stress = 0;
-            if (scan.hasNext()) {
-                happiness = Integer.parseInt(scan.next());
-
-                //stress
-                if (scan.hasNext()) {
-                    stress = Integer.parseInt(scan.next());
-
-                    //sleep
-                    if (scan.hasNext()) {
-                        int sleep = Integer.parseInt(scan.next());
-
-                        //energy
-                        if (scan.hasNext()) {
-                            int energy = Integer.parseInt(scan.next());
-
-                            //water
-                            if (scan.hasNext()) {
-                                int water = Integer.parseInt(scan.next());
-                                new Entry(date, happiness, stress, sleep, energy, water);
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
-
-
-
-            //Sends them home
-            goHomeButton.addActionListener(evt -> features.switchToMainPage());
-        }
+        mainPageButton.addActionListener(evt -> features.switchToMainPage());
+    }
 
     /**
      * Focuses back due to JUnit format
