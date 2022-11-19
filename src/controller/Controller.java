@@ -82,7 +82,7 @@ public class Controller implements IFeatures {
 
   @Override
   public void generateGraph(String startDate, String endDate, String attribute) {
-
+    //TODO after get graph
   }
 
   @Override
