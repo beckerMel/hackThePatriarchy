@@ -22,4 +22,13 @@ public class JoyArchiveTest {
     assertEquals(ja.getNumEntries(), 1);
     assertEquals("tag1 tag2 tag3\n", ja.getEntryTags(entryName));
   }
+
+  @Test
+  public void testRemoveEntry() {
+    ja.addJAEntry(entryName, entryText, "tag1", "tag2", "tag3");
+    assertEquals(ja.getNumEntries(), 1);
+    assertEquals("tag1 tag2 tag3\n", ja.getEntryTags(entryName));
+    ja.removeJAEntry(entryName);
+    assertEquals(ja.getNumEntries(), 0);
+  }
 }
