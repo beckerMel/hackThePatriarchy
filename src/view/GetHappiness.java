@@ -6,10 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-public class JFrameView extends JFrame implements IView {
+public class GetHappiness extends JFrame implements IView {
 
   private JLabel display;
-  private JButton chartButton, entryButton, removeEntry, happinessButton, exitButton;
+  private JButton searchButton, highlightsButton, homeButton;
   private JTextField input;
 
   @Override
