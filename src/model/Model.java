@@ -112,7 +112,7 @@ public class Model implements IModel {
   }
 
   @Override
-  public LinkedHashMap<String, Integer> toGraph(String startDate, String endDate,
+  public String toGraph(String startDate, String endDate,
                                                 DataSource api, String feature) throws IllegalArgumentException {
     return gs.toGraph(startDate, endDate, mt, api, feature);
   }
