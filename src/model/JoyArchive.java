@@ -283,12 +283,13 @@ public class JoyArchive implements IJoyArchive {
       throw new IllegalArgumentException("Start date is after end date");
     }
     Calendar currDay = start;
-    while(!start.after(end)) {
+    while(!currDay.after(end)) {
       String thisHighlight = highlights.get(currDay);
       if (highlights == null) {
         continue;
       }
       returnList.add(thisHighlight);
+      currDay.add(Calendar.DAY_OF_YEAR, 1);
     }
     return returnList;
   }
@@ -312,7 +313,7 @@ public class JoyArchive implements IJoyArchive {
 
   @Override
   public void addHighlight(String date, String text) throws IllegalArgumentException {
-    Calendar entryDate = stringToCalendar(text);
+    Calendar entryDate = stringToCalendar(date);
     highlights.put(entryDate, text);
   }
 
