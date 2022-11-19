@@ -148,7 +148,7 @@ public class JoyArchive implements IJoyArchive {
   protected void initializeAffirmations() {
     Scanner scan;
     try {
-      scan = new Scanner(new File("../premade-affirmations.txt"));
+      scan = new Scanner(new File("res/premade-affirmations.txt"));
     } catch (IOException e) {
       throw new RuntimeException("Could not open premade-affirmations.txt");
     }
@@ -284,20 +284,16 @@ public class JoyArchive implements IJoyArchive {
   @Override
   public List<String> getHighlights(String startDate, String endDate)
           throws IllegalArgumentException {
-    Date start = stringToDate(startDate);
-    Date end = stringToDate(endDate);
-    Calendar startCal = Calendar.getInstance();
-    startCal.setTime(start);
-    Calendar endCal = Calendar.getInstance();
-    endCal.setTime(end);
+    Calendar start = stringToCalendar(startDate);
+    Calendar end = stringToCalendar(endDate);
 
     List<String> returnList = new LinkedList<>();
 
-    if (endCal.before(startCal)) {
+    if (end.before(start)) {
       throw new IllegalArgumentException("Start date is after end date");
     }
-    Calendar currDay = startCal;
-    while(!startCal.after(endCal)) {
+    Calendar currDay = start;
+    while(!start.after(end)) {
       String thisHighlight = highlights.get(currDay);
       if (highlights == null) {
         continue;
@@ -314,13 +310,28 @@ public class JoyArchive implements IJoyArchive {
   }
 
   @Override
-  public void addHighlight(String date, String text) {
+  public void addHighlight(String date, String text) throws IllegalArgumentException {
+    Calendar entryDate = stringToCalendar(text);
+    highlights.put(entryDate, text);
+  }
 
+  protected Calendar stringToCalendar(String dateString) {
+    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+    Date date = null;
+    try {
+      date = formatter.parse(dateString);
+    } catch (ParseException e) {
+      throw new IllegalArgumentException("Invalid date format - use yyyy-mm-dd");
+    }
+    Calendar cal = Calendar.getInstance();
+    cal.setTime(date);
+    return cal;
   }
 
   @Override
-  public void removeHighlight(String date) {
-
+  public void removeHighlight(String date) throws IllegalArgumentException {
+    Calendar entryDate = stringToCalendar(date);
+    highlights.remove(entryDate);
   }
 
   @Override
