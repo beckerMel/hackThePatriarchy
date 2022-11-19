@@ -1,6 +1,6 @@
 package view;
 
-import controller.Features;
+import controller.IFeatures;
 
 public interface IView {
 
@@ -8,7 +8,7 @@ public interface IView {
 
   void clearInputString();
 
-  void addFeatures(Features features);
+  void addFeatures(IFeatures features);
 
   void resetFocus();
 
