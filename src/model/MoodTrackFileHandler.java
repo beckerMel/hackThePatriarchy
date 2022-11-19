@@ -7,7 +7,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class CsvHandler implements FileHandler {
+public class MoodTrackFileHandler implements FileHandler {
 
   protected boolean isCsv(String filename) {
     int dot = filename.lastIndexOf(".");

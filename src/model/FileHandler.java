@@ -1,7 +1,7 @@
 package model;
 
-public interface FileHandler {
-  void readFile(MoodTracker moodTracker, String filename);
+public interface FileHandler<T> {
+  void readFile(T returnObject, String filename);
 
-  void saveToFile(MoodTracker moodTracker, String workingDirectory);
+  void saveToFile(T storeObject, String workingDirectory);
 }
