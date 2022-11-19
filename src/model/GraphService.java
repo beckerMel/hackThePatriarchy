@@ -1,2 +1,4 @@
-package model;public class GraphService {
+package model;
+
+public class GraphService {
 }
