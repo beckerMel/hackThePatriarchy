@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="GeneralCommandCallbacks">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/GeneralCommandCallbacks.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
