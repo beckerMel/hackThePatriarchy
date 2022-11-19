@@ -1,5 +1,6 @@
 import controller.Controller;
 import model.IModel;
+import model.Model;
 import view.IView;
 import view.MainPageFrame;
 

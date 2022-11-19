@@ -27,6 +27,7 @@ public class Highlights extends JFrame implements IView {
 
   @Override
   public void resetFocus() {
-
+    this.setFocusable(true);
+    this.requestFocus();
   }
 }
