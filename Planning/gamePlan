@@ -1,0 +1,33 @@
+Things to do:
+
+Two centers
+    - The Joy Archive - Melanie
+        - Happy Text
+        - Happy Media
+        - Store of affirmations within the app, people can add the ones that speak to them
+            - List of strings
+        - Functionality We Need
+            - Create collections of entries
+            - Functionality to randomly select a memory to randomly display when the app is opened
+            - Add tags to entries
+                - Tags are a list of strings
+            - Set dates that you want specific
+
+
+
+    - Mood / Health Tracking Center (we should name this!) - Dheekksha
+            - Enter physical and mental health info
+            - Generating graphs for data analysis
+            - Explain why  / Journal entry
+            - What color is your mood / helpful prompts colors are ENUMS BITCHES
+
+
+Controller - Trang
+
+
+View - Himaja
+
+
+User Interface
+
+Powerpoint
