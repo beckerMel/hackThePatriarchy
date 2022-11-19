@@ -87,13 +87,13 @@ public class Controller implements IFeatures {
 
   @Override
   public void addEntry(String date, String happiness, String stress, String sleep, String energy, String water) {
-    //model.addEntry(date, Integer.parseInt(happiness), Integer.parseInt(stress), Integer.parseInt(sleep),
-            //Integer.parseInt(energy), Integer.parseInt(water));
+    model.addEntry(date, Integer.parseInt(happiness), Integer.parseInt(stress), Integer.parseInt(sleep),
+            Integer.parseInt(energy), Integer.parseInt(water));
   }
 
   @Override
   public void removeEntry(String date) {
-    //model.removeEntry(date);
+    model.removeEntry(date);
   }
 
   @Override
