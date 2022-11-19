@@ -17,6 +17,17 @@ public class Highlights extends JFrame implements IView {
     setLocation(200, 200);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+    display = new JLabel("Get Highlights");
+    this.add(display);
+
+    input = new JTextField(20);
+    this.add(input);
+
+    enterButton = new JButton("Enter");
+    this.add(enterButton);
+
+    pack();
+    setVisible(true);
   }
 
   @Override

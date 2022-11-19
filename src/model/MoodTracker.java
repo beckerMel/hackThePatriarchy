@@ -52,7 +52,7 @@ public class MoodTracker implements IMoodTracker {
     return entries;
   }
 
-  public MoodTracker(FileHandler ff, String filename) {
+  public MoodTracker(IFileHandler ff, String filename) {
     trackerName = "";
     directory = "";
     numOfEntries = 0;
@@ -82,7 +82,7 @@ public class MoodTracker implements IMoodTracker {
   }
 
   @Override
-  public IMoodTracker createFromFile(FileHandler f, String filepath) throws IllegalArgumentException {
+  public IMoodTracker createFromFile(IFileHandler f, String filepath) throws IllegalArgumentException {
     return new MoodTracker(f, filepath);
   }
 
