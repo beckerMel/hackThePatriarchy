@@ -1,6 +1,7 @@
+/*
 package model;
 
-public class JoyArchFileHandler<IJoyArchive> implements FileHandler<IJoyArchive> {
+public class JoyArchFileHandler<IJoyArchive> implements IFileHandler<IJoyArchive> {
   @Override
   public void readFile(IJoyArchive returnObject, String filename) {
 
@@ -11,3 +12,4 @@ public class JoyArchFileHandler<IJoyArchive> implements FileHandler<IJoyArchive>
 
   }
 }
+*/

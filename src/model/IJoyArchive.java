@@ -28,9 +28,11 @@ public interface IJoyArchive {
 
   List<String> getHighlights(String startDate, String endDate);
 
-  List<String> getEntryTags(String entryName);
+  String getEntryTags(String entryName);
 
   void addHighlight(String date, String text);
 
   void removeHighlight(String date);
+
+  int getNumEntries();
 }

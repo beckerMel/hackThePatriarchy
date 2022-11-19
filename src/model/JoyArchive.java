@@ -304,9 +304,20 @@ public class JoyArchive implements IJoyArchive {
   }
 
   @Override
-  public List<String> getEntryTags(String entryName) {
+  public String getEntryTags(String entryName) {
     Entry thisEntry = entries.get(entryName);
-    return thisEntry.tags;
+    int length = thisEntry.tags.size();
+    StringBuilder entryTags = new StringBuilder("");
+    for (int i = 0; i < length; i++) {
+      entryTags.append(thisEntry.tags.get(i));
+      if (i != length - 1) {
+        entryTags.append(" ");
+      } else {
+        entryTags.append("\n");
+      }
+    }
+
+    return entryTags.toString();
   }
 
   @Override
@@ -352,5 +363,10 @@ public class JoyArchive implements IJoyArchive {
   public String generateAffirmation() {
     int index = randomNumber(0, affirmations.size() - 1);
     return affirmations.get(index);
+  }
+
+  @Override
+  public int getNumEntries() {
+    return entries.size();
   }
 }
