@@ -183,6 +183,7 @@ public class JoyArchive implements IJoyArchive {
         } else {
           thisTag.addEntry(newEntry.getName());
         }
+        tags.put(tag, thisTag);
         newEntry.addTag(tag);
       }
     }
@@ -268,17 +269,6 @@ public class JoyArchive implements IJoyArchive {
       entries.remove(entryName);
     }
     tags.remove(tag);
-  }
-
-  protected Date stringToDate(String date) throws IllegalArgumentException {
-    SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
-    Date date1 = null;
-    try {
-      date1 = formatter.parse(date);
-    } catch (ParseException e) {
-      throw new IllegalArgumentException("Invalid date format - use yyyy-mm-dd");
-    }
-    return date1;
   }
 
   @Override

@@ -18,7 +18,7 @@ public class MoodTrackFileHandler implements IMoodTrackFileHandler {
     return (filename.substring(dot + 1).equals("csv"));
   }
   @Override
-  public void readFile(MoodTracker moodTracker, String filename) {
+  public void readFile(IMoodTracker moodTracker, String filename) {
     if (!isCsv(filename)) {
       throw new IllegalArgumentException("Invalid filepath/name provided");
     }
@@ -53,7 +53,7 @@ public class MoodTrackFileHandler implements IMoodTrackFileHandler {
   }
 
   @Override
-  public void saveToFile(MoodTracker moodTracker, String workingDirectory) {
+  public void saveToFile(IMoodTracker moodTracker, String workingDirectory) {
     int i = 0;
     workingDirectory = workingDirectory.replaceAll("\\\\", "/");
     if (workingDirectory.charAt(workingDirectory.length() - 1) != '/') {

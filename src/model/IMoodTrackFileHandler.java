@@ -2,9 +2,9 @@ package model;
 
 public interface IMoodTrackFileHandler {
 
-  void readFile(MoodTracker returnObject, String filename);
+  void readFile(IMoodTracker returnObject, String filename);
 
-  void saveToFile(MoodTracker storeObject, String workingDirectory);
+  void saveToFile(IMoodTracker storeObject, String workingDirectory);
 
   boolean isCsv(String filename);
 }
