@@ -12,19 +12,14 @@ public class Highlights extends JFrame implements IView {
   private JButton enterButton, homeButton;
   private JTextField input;
 
-  @Override
-  public String getInputString() {
-    return null;
-  }
-
-  @Override
-  public void clearInputString() {
+  public Highlights() {
 
   }
 
   @Override
   public void addFeatures(IFeatures features) {
-
+    //enterButton.addActionListener(evt -> features.showHighlights());
+    //homeButton.addActionListener(evt -> feature.goHome());
   }
 
   @Override

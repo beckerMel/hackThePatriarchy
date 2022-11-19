@@ -10,21 +10,15 @@ public class GetHappiness extends JFrame implements IView {
   private JLabel display;
   private JButton searchButton, highlightsButton, homeButton;
 
-  @Override
-  public String getInputString() {
-    return null;
-  }
-
-  @Override
-  public void clearInputString() {
+  public GetHappiness() {
 
   }
 
   @Override
   public void addFeatures(IFeatures features) {
-
-    //searchButton.addActionListener(evt -> features.searchInput(input.));
-
+    //searchButton.addActionListener(evt -> features.searchFeatureSelected());
+    //highlightsButton.addActionListener(evt -> features.highlightsFeatureSelected());
+    //homeButton.addActionListener(evt -> feature.goHome());
   }
 
   @Override

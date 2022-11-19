@@ -12,19 +12,13 @@ public class Search extends JFrame implements IView {
   private JButton searchButton, homeButton;
   private JTextField input;
 
-  @Override
-  public String getInputString() {
-    return null;
-  }
-
-  @Override
-  public void clearInputString() {
+  public Search() {
 
   }
 
   @Override
   public void addFeatures(IFeatures features) {
-
+    //searchButton.addActionListener(evt -> features.search());
   }
 
   @Override
