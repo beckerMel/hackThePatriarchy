@@ -17,30 +17,37 @@ public class MoodTracker implements IMoodTracker {
     entries = new ArrayList<>();
   }
 
+  @Override
   public void setDirectory(String directory) {
     this.directory = directory;
   }
 
+  @Override
   public void setNumOfEntries(int numOfEntries) {
     this.numOfEntries = numOfEntries;
   }
 
+  @Override
   public void setTrackerName(String trackerName) {
     this.trackerName = trackerName;
   }
 
+  @Override
   public String getTrackerName() {
     return trackerName;
   }
 
+  @Override
   public int getNumOfEntries() {
     return numOfEntries;
   }
 
+  @Override
   public void setEntries(ArrayList<Entry> entries) {
     this.entries = entries;
   }
 
+  @Override
   public ArrayList<Entry> getEntries() {
     return entries;
   }
