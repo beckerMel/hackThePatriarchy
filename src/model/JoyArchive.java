@@ -148,9 +148,9 @@ public class JoyArchive implements IJoyArchive {
   protected void initializeAffirmations() {
     Scanner scan;
     try {
-      scan = new Scanner(new File("res/premade-affirmations"));
+      scan = new Scanner(new File("/premade-affirmations"));
     } catch (IOException e) {
-      throw new RuntimeException("Could not open premade-affirmations.txt");
+      throw   new RuntimeException("Could not open premade-affirmations.txt");
     }
     while (scan.hasNextLine()) {
       affirmations.add(scan.nextLine());
