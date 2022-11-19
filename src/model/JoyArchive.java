@@ -150,7 +150,7 @@ public class JoyArchive implements IJoyArchive {
     try {
       scan = new Scanner(new File("res/premade-affirmations"));
     } catch (IOException e) {
-      throw new RuntimeException("Could not open premade-affirmations.txt");
+      throw   new RuntimeException("Could not open premade-affirmations.txt");
     }
     while (scan.hasNextLine()) {
       affirmations.add(scan.nextLine());

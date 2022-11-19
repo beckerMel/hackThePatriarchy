@@ -183,4 +183,14 @@ public class Model implements IModel {
   public void saveToFile(String workingDirectory) {
     fh.saveToFile(mt, workingDirectory);
   }
+
+  public void addEntry(String date, int happiness, int stress, int sleep, int energy, int water) {
+    mt.addEntry(date, happiness, stress, sleep, energy, water);
+  }
+
+  public void removeEntry(String date) {
+    mt.removeEntry(date);
+  }
+
+
 }
