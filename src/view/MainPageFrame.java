@@ -6,7 +6,6 @@ import java.awt.event.KeyListener;
 
 import javax.swing.*;
 
-import controller.Features;
 import controller.IFeatures;
 
 public class MainPageFrame extends JFrame implements IView {
@@ -49,12 +48,25 @@ public class MainPageFrame extends JFrame implements IView {
 
   @Override
   public void addFeatures(IFeatures features) {
-    //addEntryButton.addActionListener(evt -> );
-    //removeEntryButton.addActionListener(evt -> features.switchToRemoveEntryPage());
-    getHappinessButton.addActionListener(evt -> this.setVisible(false));
-    // chartButton.addActionListener(evt -> features.switchToChartPage());
+    addEntryButton.addActionListener(evt -> features.switchToAddEntryPage());
+    removeEntryButton.addActionListener(evt -> features.switchToRemoveEntryPage());
+    getHappinessButton.addActionListener(evt -> features.switchToGetHappinessPage());
+    chartButton.addActionListener(evt -> features.switchToChartPage());
   }
 
+  /*
+  In order to make this frame respond to keyboard events, it must be within strong focus.
+  Since there could be multiple components on the screen that listen to keyboard events,
+  we must set one as the "currently focussed" one so that all keyboard events are
+  passed to that component. This component is said to have "strong focus".
 
-
+  We do this by first making the component focusable and then requesting focus to it.
+  Requesting focus makes the component have focus AND removes focus from whoever had it
+  before.
+*/
+  @Override
+  public void resetFocus() {
+    this.setFocusable(true);
+    this.requestFocus();
+  }
 }
