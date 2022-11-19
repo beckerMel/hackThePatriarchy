@@ -1,6 +1,9 @@
 package model;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -9,6 +12,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
+import java.util.Scanner;
 
 /*
 
@@ -133,11 +137,24 @@ public class JoyArchive implements IJoyArchive {
   }
 
   public JoyArchive() {
-    affirmations = new LinkedList<String>();
-    tags = new HashMap<String, Tag>();
+    affirmations = new LinkedList<>();
+    initializeAffirmations();
+    tags = new HashMap<>();
     entries = new HashMap<>();
     nextEntryId = 0;
-    highlights = new HashMap<Date, String>();
+    highlights = new HashMap<>();
+  }
+
+  protected void initializeAffirmations() {
+    Scanner scan;
+    try {
+      scan = new Scanner(new File("../premade-affirmations.txt"));
+    } catch (IOException e) {
+      throw new RuntimeException("Could not open premade-affirmations.txt");
+    }
+    while (scan.hasNextLine()) {
+      affirmations.add(scan.nextLine());
+    }
   }
 
   protected int randomNumber(int minVal, int maxVal) {
@@ -150,7 +167,7 @@ public class JoyArchive implements IJoyArchive {
   }
 
   @Override
-  public void addEntry(String entryName, String entryText, String... entryTags)
+  public void addJAEntry(String entryName, String entryText, String... entryTags)
           throws IllegalArgumentException {
     if (entries.get(entryName) != null) {
       throw new IllegalArgumentException("Entry under the given name already exists.");
@@ -173,16 +190,6 @@ public class JoyArchive implements IJoyArchive {
   }
 
   @Override
-  public void addAffirmation(String text) {
-
-  }
-
-  @Override
-  public void removeAffirmation(String entryName) {
-
-  }
-
-  @Override
   public String getSampleAffirmations() {
     return null;
   }
@@ -194,7 +201,7 @@ public class JoyArchive implements IJoyArchive {
    * @throws IllegalArgumentException
    */
   @Override
-  public void removeEntry(String entryName) throws IllegalArgumentException {
+  public void removeJAEntry(String entryName) throws IllegalArgumentException {
     Entry thisEntry = entries.get(entryName);
     if (thisEntry == null) {
       throw new IllegalArgumentException("No entry found under the given name.");
@@ -220,8 +227,9 @@ public class JoyArchive implements IJoyArchive {
   }
 
   @Override
-  public String getEntry() {
-    return null;
+  public String getJAEntry(String entryName) {
+    Entry thisEntry = entries.get(entryName);
+    return thisEntry.content;
   }
 
   @Override
@@ -306,18 +314,32 @@ public class JoyArchive implements IJoyArchive {
   }
 
   @Override
+  public void addHighlight(String date, String text) {
+
+  }
+
+  @Override
+  public void removeHighlight(String date) {
+
+  }
+
+  @Override
   public List<String> getAllCertainTag(String tag) {
     Tag thisTag = tags.get(tag);
     return thisTag.entryIds;
   }
 
   @Override
-  public String getRandomEntry() {
-    int index = randomNumber(0, entries.size() - 1);
+  public String generateEntry() {
+    Entry [] entryArray = (Entry[])entries.values().toArray();
+    int index = randomNumber(0, entryArray.length - 1);
+    Entry thisEntry = entryArray[index];
+    return thisEntry.content;
   }
 
   @Override
-  public String generateEntry() {
-    return null;
+  public String generateAffirmation() {
+    int index = randomNumber(0, affirmations.size() - 1);
+    return affirmations.get(index);
   }
 }

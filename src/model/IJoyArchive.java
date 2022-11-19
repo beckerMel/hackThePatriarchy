@@ -3,16 +3,16 @@ package model;
 import java.util.List;
 
 public interface IJoyArchive {
-  void addEntry(String entryName, String entryBody, String... tags);
+  void addJAEntry(String entryName, String entryBody, String... tags);
 
   /* Return the affirmations that users haven't pre-selected yet */
   String getSampleAffirmations();
 
-  void removeEntry(String text);
+  void removeJAEntry(String text);
 
   void addTag(String entryName, String tag);
 
-  String getEntry();
+  String getJAEntry(String entryName);
 
   void removeTag(String entryName, String tag);
 
@@ -22,8 +22,9 @@ public interface IJoyArchive {
 
   List<String> getAllCertainTag(String tag);
 
-  /* Will just give the file to controller if it's media */
-  String getRandomEntry();
+  String generateEntry();
+
+  String generateAffirmation();
 
   List<String> getHighlights(String startDate, String endDate);
 
