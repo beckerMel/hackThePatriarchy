@@ -4,11 +4,13 @@ import controller.IFeatures;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
 
-public class GetHappiness extends JFrame implements IView {
+public class Search extends JFrame implements IView {
 
   private JLabel display;
-  private JButton searchButton, highlightsButton, homeButton;
+  private JButton searchButton, homeButton;
+  private JTextField input;
 
   @Override
   public String getInputString() {
@@ -22,8 +24,6 @@ public class GetHappiness extends JFrame implements IView {
 
   @Override
   public void addFeatures(IFeatures features) {
-
-    //searchButton.addActionListener(evt -> features.searchInput(input.));
 
   }
 
