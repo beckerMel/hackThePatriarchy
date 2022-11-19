@@ -1,10 +1,15 @@
 package view;
 
-import controller.Features;
+import controller.IFeatures;
 
 public interface IView {
 
-  void addFeatures(Features features);
+  String getInputString();
 
+  void clearInputString();
+
+  void addFeatures(IFeatures features);
+
+  void resetFocus();
 
 }
