@@ -59,14 +59,6 @@ public interface IModel {
                       DataSource api, String feature) throws IllegalArgumentException;
 
 
-  public void setDirectory(String directory);
-
-
-  public void setNumMoodTrackerEntries(int numOfEntries);
-
-
-  public void setTrackerName(String trackerName);
-
 
   public String getTrackerName();
 
@@ -87,10 +79,5 @@ public interface IModel {
   public void removeMoodTrackerEntry(String date) throws IllegalArgumentException;
 
 
-  public boolean checkValidDateFormat(String name);
 
-
-  public void readFile(String filename);
-
-  public void saveToFile(String workingDirectory);
 }

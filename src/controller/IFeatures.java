@@ -15,7 +15,5 @@ public interface IFeatures {
   void addEntry(String date, String happiness, String stress, String sleep, String energy, String water);
   void removeEntry(String date);
   void exitProgram();
-
-
-
+  void addHighlight(String entryName, String entryContent, String entryTag);
 }
