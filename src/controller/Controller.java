@@ -4,6 +4,7 @@ import javax.naming.directory.SearchResult;
 import model.IModel;
 import view.EntryFrame;
 import view.GetHappiness;
+import view.GraphFrame;
 import view.Highlights;
 import view.IView;
 import view.RemoveFrame;
@@ -53,7 +54,8 @@ public class Controller implements IFeatures {
 
   @Override
   public void switchToChartPage() {
-  // TO BE ADDED
+    IView graphFrame = new GraphFrame();
+    view = graphFrame;
   }
 
   @Override
@@ -76,6 +78,11 @@ public class Controller implements IFeatures {
   @Override
   public void showHighlightsResult()  {
     // TODO
+  }
+
+  @Override
+  public void generateGraph(String startDate, String endDate, String attribute) {
+
   }
 
   @Override

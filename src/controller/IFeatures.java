@@ -11,5 +11,8 @@ public interface IFeatures {
   void showSearchResult();
   void switchToHighlightsPage();
   void showHighlightsResult();
+  void generateGraph(String startDate, String endDate, String attribute);
   void exitProgram();
+
+
 }
