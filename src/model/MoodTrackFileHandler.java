@@ -7,9 +7,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MoodTrackFileHandler implements FileHandler {
+public class MoodTrackFileHandler<IMoodTracker> implements IFileHandler<IMoodTracker> {
 
-  protected boolean isCsv(String filename) {
+
+  @Override
+  public boolean isCsv(String filename) {
     int dot = filename.lastIndexOf(".");
     if (dot == -1) {
       return false;
@@ -17,7 +19,7 @@ public class MoodTrackFileHandler implements FileHandler {
     return (filename.substring(dot + 1).equals("csv"));
   }
   @Override
-  public void readFile(MoodTracker moodTracker, String filename) {
+  public void readFile(IMoodTracker moodTracker, String filename) {
     if (!isCsv(filename)) {
       throw new IllegalArgumentException("Invalid filepath/name provided");
     }
@@ -25,7 +27,7 @@ public class MoodTrackFileHandler implements FileHandler {
     String splitBy = ",";
     Entry temp;
     ArrayList<Entry> stocks = new ArrayList<Entry>();
-    int numStocks = moodTracker.getNumOfEntries();
+    int numStocks = moodTracker.setNumOfEntries();
 
     /* Set the directory that the portfolio is being stored at. */
     String directory = filename.replaceAll("\\\\", "/");
@@ -52,7 +54,7 @@ public class MoodTrackFileHandler implements FileHandler {
   }
 
   @Override
-  public void saveToFile(MoodTracker moodTracker, String workingDirectory) {
+  public void saveToFile(IMoodTracker moodTracker, String workingDirectory) {
     int i = 0;
     workingDirectory = workingDirectory.replaceAll("\\\\", "/");
     if (workingDirectory.charAt(workingDirectory.length() - 1) != '/') {
