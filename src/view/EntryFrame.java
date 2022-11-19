@@ -113,4 +113,6 @@ public class EntryFrame extends JFrame implements IView{
         this.setFocusable(true);
         this.requestFocus();
     }
+
+    //putting this here so i can push
 }
